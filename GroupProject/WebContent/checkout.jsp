@@ -4,7 +4,7 @@
 <title>Ray's Grocery CheckOut Line</title>
 </head>
 <body>
-
+Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 <h1>Enter your customer id to complete the transaction:</h1>
 
 <form method="get" action="order.jsp">

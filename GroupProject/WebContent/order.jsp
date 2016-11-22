@@ -14,6 +14,7 @@
 
 <% 
 // Get customer id
+Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 String custId = request.getParameter("customerId");
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");

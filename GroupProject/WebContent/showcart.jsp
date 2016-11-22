@@ -12,6 +12,7 @@
 <body>
 
 <%
+Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");

@@ -7,7 +7,7 @@
 <title>Ray's Grocery</title>
 </head>
 <body>
-
+Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 <h1>Search for the products you want to buy:</h1>
 
 <form method="get" action="listprod.jsp">

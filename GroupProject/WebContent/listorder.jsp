@@ -9,7 +9,7 @@
 <body>
 
 <h1>Order List</h1>
-
+Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 <%
 String sql = "SELECT orderId, O.CustomerId, totalAmount, cname FROM Orders O, Customer C WHERE "
 		+ "O.customerId = C.customerId";
