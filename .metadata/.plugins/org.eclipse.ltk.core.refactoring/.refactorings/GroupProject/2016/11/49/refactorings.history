@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;GroupProject/WebContent/AdminSignIn.jsp&apos; to &apos;adminsignin.jsp&apos;" description="Rename resource &apos;AdminSignIn.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/AdminSignIn.jsp" name="adminsignin.jsp" stamp="1480232296997" updateReferences="true"/>
+</session>

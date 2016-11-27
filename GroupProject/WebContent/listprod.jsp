@@ -37,7 +37,7 @@ String name = request.getParameter("productName");
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 	//Class.forName("com.sql.jdbc.Driver");
 	con = DriverManager.getConnection(url,uId,pw);
-	String sql1 = "SELECT pName, price, pID FROM Part WHERE productName LIKE ?";
+	String sql1 = "SELECT pName, price, pID FROM Part WHERE pName LIKE ?";
 	String sql2 = "SELECT pName, price, pID FROM Part";
 	PreparedStatement pstmt = null;
 	ResultSet rset =null;
@@ -60,7 +60,7 @@ String name = request.getParameter("productName");
 			//pPrice2.substring(0, 2);
 			
 			out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
-						"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
+						"</td> <td><a href=\"prodInfo.jsp?id="+pName+" \"> "+pName+" </a></td><td>"+pPrice+"</td> </tr>");
 			//out.println("");
 	}
 	out.println("</table>");

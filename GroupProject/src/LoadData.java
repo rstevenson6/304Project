@@ -23,7 +23,7 @@ public class LoadData
 
 		Connection con = DriverManager.getConnection(url, uid, pw);
 		System.out.println("Connected to database.");
-		//System.out.println("Connected!");
+		System.out.println("Connected!");
 		String fileName = "data/order_sql.ddl";
 		
 	    try
