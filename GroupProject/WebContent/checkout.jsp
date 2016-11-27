@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ray's Grocery CheckOut Line</title>
+<title>NeXt CheckOut Line</title>
 </head>
 <body>
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-<h1>Enter your customer id to complete the transaction:</h1>
 
-<form method="get" action="order.jsp">
+<h1>Enter your customer id to complete the transaction:</h1>
+<h2> REMOVED CODE: form method="get" action="order.jsp" </h2>
+<form method="get" action="Login.jsp"> 
 <input type="text" name="customerId" size="50">
-<input type="submit" value="Submit"><input type="reset" value="Reset">
+<input type="submit" value="Submit"> <input type="reset" value="Reset">
 </form>
 
 </body>

@@ -12,7 +12,6 @@
 <body>
 
 <%
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
@@ -50,7 +49,7 @@ else
 			+"<td align=\"right\">"+currFormat.format(total)+"</td></tr>");
 	out.println("</table>");
 
-	out.println("<h2><a href=\"checkout.jsp\">Check Out</a></h2>");
+	out.println("<h2><a href=\"Login.jsp\">Check Out</a></h2>"); //CHANGED to allow for login
 }
 %>
 <h2><a href="listprod.jsp">Continue Shopping</a></h2>

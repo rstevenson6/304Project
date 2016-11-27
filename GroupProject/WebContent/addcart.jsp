@@ -1,10 +1,10 @@
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.util.ArrayList"%>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
 if (productList == null)
 {	// No products currently in list.  Create a list.
 	productList = new HashMap<String, ArrayList<Object>>();
@@ -15,6 +15,7 @@ if (productList == null)
 String id = request.getParameter("id");
 String name = request.getParameter("name");
 String price = request.getParameter("price");
+//Integer quantity = request.getParameter("quantity"); //ADDED TO CHANGE Quantity doesnt work yet...
 Integer quantity = new Integer(1);
 
 // Store product information in an ArrayList

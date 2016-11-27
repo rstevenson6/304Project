@@ -4,79 +4,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ray's Grocery</title>
+<title>NeXt list of Products </title>
 </head>
 <body>
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
 <h1>Search for the products you want to buy:</h1>
 
 <form method="get" action="listprod.jsp">
 <input type="text" name="productName" size="50">
 <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
+
 </form>
 
-<%
-	// Get product name to search for
-	String name = request.getParameter("productName");
-	boolean hasParameter = false;
-	String sql = "";
+<% // Get product name to search for
+String name = request.getParameter("productName");
 
-	if (name == null)
-		name = "";
+/*Integer qty = Integer.parseInt(request.getParameter("Quantity").toString());
+<input type="text" name="Quantity" size="50"><input type="submit" value="Submit">
+*/
+		
+// Variable name now contains the search string the user entered
+// Use it to build a query and print out the resultset.  Make sure to use PreparedStatement!
 
-	if (name.equals("")) 
-	{
-		out.println("<h2>All Products</h2>");
-		sql = "SELECT productId, productName, price FROM Product";
-	} 
-	else 
-	{
-		out.println("<h2>Products containing '" + name + "'</h2>");
-		hasParameter = true;
-		sql = "SELECT productId, productName, price FROM Product WHERE productName LIKE ?";
-		name = '%' + name + '%';
-	}
-
-	Connection con = null;
-	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rlawrenc;";
-	String uid = "rlawrenc";
-	String pw = "test";
+// Make the connection
+	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_dkandie;";
+	String uId = "dkandie";
+	String pw = "32056153";
+	Connection con=null;
+	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); //To ensure that the Driver is found 
+	//out.println("About to begin try statement");
+	try{
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-
-	try 
-	{
-		con = DriverManager.getConnection(url, uid, pw);
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		if (hasParameter)
-			pstmt.setString(1, name);
-
-		ResultSet rst = pstmt.executeQuery();
-		out.println("<table><tr><th></th><th>Product Name</th><th>Price</th></tr>");
-		while (rst.next()) 
-		{
-			out.print("<tr><td><a href=\"addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2)
-					+ "&price=" + rst.getDouble(3) + "\">Add to Cart</a></td>");
-			out.println("<td>" + rst.getString(2) + "</td>" + "<td>" + currFormat.format(rst.getDouble(3))
-					+ "</td></tr>");
-		}
-		out.println("</table>");
-	} 
-	catch (SQLException ex) 
-	{
-		out.println(ex);
-	} 
-	finally 
-	{
-		try 
-		{
-			if (con != null)
-				con.close();
-		} 
-		catch (SQLException ex) 
-		{
-			out.println(ex);
-		}
+	//Class.forName("com.sql.jdbc.Driver");
+	con = DriverManager.getConnection(url,uId,pw);
+	String sql1 = "SELECT pName, price, pID FROM Part WHERE productName LIKE ?";
+	String sql2 = "SELECT pName, price, pID FROM Part";
+	PreparedStatement pstmt = null;
+	ResultSet rset =null;
+	String pName=null;
+	String pId =null;
+	String pPrice=null;
+	String pPrice2 =null;
+	//String pTest = "5";
+	if(name==""||name==null){
+	pstmt = con.prepareStatement(sql2);
+	//pstmt.setString(1,name);
+	rset = pstmt.executeQuery();
+	out.println(" All Part ");
+	out.println("<table width=\"100%\"><tr> <th> </th> <th> Product name</th> <th>Price</th></tr>");
+		while(rset.next()){
+			pName =rset.getString("pName");
+			pId =rset.getString("pID");
+			pPrice =currFormat.format(rset.getDouble("price"));
+			pPrice2 =rset.getDouble("price")+""; //CHANGE TO STRING
+			//pPrice2.substring(0, 2);
+			
+			out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
+						"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
+			//out.println("");
 	}
+	out.println("</table>");
+	}else{
+	out.println("Products countaining " + "'"+name+"'");
+	out.println("<table width=\"100%\"> <tr><th></th><th>Product name</th> <th>Price</th></tr>");
+	pstmt = con.prepareStatement(sql1);
+	pstmt.setString(1,"%"+name+"%");
+	rset = pstmt.executeQuery();
+		while(rset.next()){
+			pName =rset.getString("productName");
+			pId =rset.getString("productId");
+			pPrice =currFormat.format(rset.getDouble("price"));
+			pPrice2 =rset.getDouble("price")+"";
+			//pPrice2.substring(0, 2);
+			out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
+					"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
+	}
+	out.println("</table>");
+	}
+	}catch(SQLException e){out.println("Error found in reading SQL: "+ e.getMessage());}
+	finally {
+		if(con != null)
+		try{
+		con.close();
+		}catch(SQLException e) {out.println("Exception caught: " + e.getMessage());}
+	}
+	
+// Print out the ResultSet
+
+// For each product create a link of the form
+// href = "addcart.jsp?id=<productId>&name=<productName>&price=<productPrice>"
+
+// Close connection
+
+// Useful code for formatting currency values:
+// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
+// out.println(currFormat.format(5.0);	// Prints $5.00
 %>
+
 </body>
 </html>

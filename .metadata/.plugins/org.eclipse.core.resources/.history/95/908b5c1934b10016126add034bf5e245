@@ -1,0 +1,136 @@
+DROP TABLE Part;
+DROP TABLE User;
+DROP TABLE Order;
+DROP TABLE Warehouse;
+DROP TABLE UserReview;
+DROP TABLE PartCategory;
+DROP TABLE Company;
+DROP TABLE Cart;
+
+
+CREATE TABLE Part(
+pID INTEGER NOT NULL,
+photo VARCHAR(256),
+pName VARCHAR(20) NOT NULL,
+company VARCHAR(20) NOT NULL,
+description VARCHAR(100),
+price DECIMAL(10,2) NOT NULL,
+pRating DECIMAL(5,2),
+catID INTEGER,
+compID INTEGER,
+PRIMARY KEY(pID),
+FOREIGN KEY(catID) REFERENCES PartCategory(catID)
+	ON DELETE SET NULL ON UPDATE CASCADE,
+FOREIGN KEY(compID) REFERENCES Company(companyID)
+ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+
+CREATE TABLE User(
+uID VARCHAR(30) NOT NULL,
+password VARCHAR(20) NOT NULL,
+firstName VARCHAR(20) NOT NULL,
+lastName VARCHAR(20) NOT NULL,
+email VARCHAR(20),
+address VARCHAR(20),
+city VARCHAR(20),
+province VARCHAR(20),
+zipCode VARCHAR(6),
+PRIMARY KEY(uID)
+);
+
+CREATE TABLE Order(
+oID INTEGER NOT NULL,
+uID INTEGER,
+Date DATE,
+totalPrice DECIMAL(10,2) NOT NULL,
+itemTotal INTEGER,
+address VARCHAR(20) NOT NULL,
+city VARCHAR(20) NOT NULL,
+province VARCHAR(2) NOT NULL,
+zipCode VARCHAR(6) NOT NULL,
+PRIMARY KEY(oID)
+CONSTRAINT FK_Orders_User FOREIGN KEY (uID) REFERENCES User(uID)
+);
+
+
+CREATE TABLE Warehouse(
+wID INTEGER NOT NULL,
+address VARCHAR(20) NOT NULL,
+city VARCHAR(20) NOT NULL,
+province VARCHAR(2) NOT NULL,
+PRIMARY KEY(wID)
+);
+
+CREATE TABLE UserReview(
+rID INTEGER NOT NULL,
+uID VARCHAR(20) NOT NULL,
+pID INTEGER NOT NULL,
+comment VARCHAR(100),
+date DATE,
+rating INTEGER NOT NULL,
+PRIMARY KEY(uID, pID)
+);
+
+CREATE TABLE PartCategory(
+catID INTEGER NOT NULL,
+catName VARCHAR(20) NOT NULL,
+PRIMARY KEY(catID),
+);
+
+CREATE TABLE Company(
+companyID INTEGER NOT NULL,
+companyName VARCHAR(20) NOT NULL,
+PRIMARY KEY(companyID),
+);
+
+
+CREATE TABLE Cart(
+Total INTEGER,
+uID INTEGER,
+pID INTEGER,
+PRIMARY KEY(pID) 
+FOREIGN KEY (uID) REFERENCES User(uID)
+FOREIGN KEY (pID) REFERENCES Part(pID)
+);
+
+
+INSERT INTO Part VALUES(1,'<img src="">','500GB Hard Drive','Intel','500gb HDD 5400rpm',50.00, 0, 1, 1);
+INSERT INTO Part VALUES(2,'<img src="">','1TB Hard Drive','Intel','1tb HDD 7200rpm',100.00, 0, 1, 1);
+INSERT INTO Part VALUES(3,'<img src="">','128GB Solid State Drive','Intel','128gb SSD',150.00, 0, 1, 1);
+INSERT INTO Part VALUES(4,'<img src="">','8GB RAM','NVidia','8 GB RAM stick',50.00, 0, 2, 2);
+INSERT INTO Part VALUES(5,'<img src="">','16GB RAM','Intel','16gb RAM stick',75.00, 0, 2, 1);
+INSERT INTO Part VALUES(6,'<img src="">','Gaming Mouse','Logitech','A real nice Mouse',25.00, 0, 3, 3);
+INSERT INTO Part VALUES(7,'<img src="">','Keyboard','Logitech','A real nice keyboard',25.00, 0, 4, 3);
+INSERT INTO Part VALUES(8,'<img src="">','HD Monitor','LG','1080px LED monitor',250.00, 0, 5, 6);
+INSERT INTO Part VALUES(9,'<img src="">','ThinkPad','Lenovo','500gb HDD 4GB RAM, 1080p, 1.8ghz I-3 Core',750.00, 0, 6, 4);
+INSERT INTO Part VALUES(10,'<img src="">','Insperion','Dell','750gb HDD 8GB RAM, 1080p, 2.6ghz I-5 Core',1000.00, 0, 6, 5);
+INSERT INTO Part VALUES(11,'<img src="">','Aspire','Acer','128gb SDD 4GB RAM, 1080p, 2.2ghz I-5 Core',900.00, 0, 6, 7);
+INSERT INTO Part VALUES(12,'<img src="">','Zenbook','ASUS','500gb HDD 8GB RAM, 1080p, 2.8ghz I-7 Core',1100.00, 0, 6, 8);
+INSERT INTO Part VALUES(9,'<img src="">','ThinkPad','Lenovo','500gb HDD 4GB RAM, 1080p, 1.8ghz I-3 Core',750.00, 0, 6, 4);
+
+
+INSERT INTO User VALUES ( 1, 'Walrus', 'Ross', 'Stevenson','rstevenson@anywhere.com', '103 AnyWhere Street', 'Kelowna', 'BC', 'HOHOHO');
+INSERT INTO User VALUES ( 2, 'Goofball', 'Max', 'Marchand','mmarchand@anywhere.com', '5 EX drive', 'Kelowna', 'BC', 'I5UCKD');
+INSERT INTO User VALUES ( 3, 'Poland', 'Daniel', 'Kandie','kandieman@anywhere.com', '420 Yellow Brick Road', 'Kelowna', 'BC', '694TWZ');
+INSERT INTO User VALUES ( 4, 'Helocopter', 'Ashton', 'Rasmuson','ADawg@anywhere.com', '7 Evergreen Terrace', 'Springfield', 'BC', '789WTF');
+
+INSERT INTO Warehouse VALUES (1, '123 elm street', 'Vancouver', 'BC', 'V7W3JS');
+INSERT INTO Warehouse VALUES (2, '456 Bark avenue', 'Calgary', 'AB', 'C0WM00');
+INSERT INTO Warehouse VALUES (3, '789 Oak Road', 'Toronto', 'ON', 'L34F3Z');
+
+INSERT INTO PartCategory(1, 'Hard Drives');
+INSERT INTO PartCategory(2, 'RAM');
+INSERT INTO PartCategory(3, 'Mice');
+INSERT INTO PartCategory(4, 'Keyboards');
+INSERT INTO PartCategory(5, 'Monitors');
+INSERT INTO PartCategory(6, 'Laptops');
+
+INSERT INTO Company VALUES (1, 'Intel');
+INSERT INTO Company VALUES (2, 'Nvidia');
+INSERT INTO Company VALUES (3, 'Logitech');
+INSERT INTO Company VALUES (4, 'Lenovo');
+INSERT INTO Company VALUES (5, 'Dell')
+INSERT INTO Company VALUES (6, 'LG');
+INSERT INTO Company VALUES (7, 'Acer');
+INSERT INTO Company VALUES (8, 'ASUS');
