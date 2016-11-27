@@ -20,13 +20,13 @@ String sql1 = "SELECT pID, photo, pName, company, description, price, pRating FR
 PreparedStatement pstmt = null;
 ResultSet rset =null;
 
-int pId=0;
+int pId;
 String pic = null;
 String pName=null;
 String company = null;
 String desc =null;
 String price=null;
-double rating=0;
+double rating;
 
 pstmt = con.prepareStatement(sql1);
 rset = pstmt.executeQuery();

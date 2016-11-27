@@ -1,5 +1,4 @@
-<%@ page import="java.sql.*" %>
-<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.HashMap"%>
 <%@ page import="java.util.ArrayList"%>
 <%
 // Get the current list of products
@@ -20,36 +19,27 @@ String sql1 = "SELECT pID, photo, pName, company, description, price, pRating FR
 PreparedStatement pstmt = null;
 ResultSet rset =null;
 
-int pId=0;
+int pId =null;
 String pic = null;
 String pName=null;
 String company = null;
 String desc =null;
-String price=null;
-double rating=0;
+double price=null;
+double rating=null;
 
 pstmt = con.prepareStatement(sql1);
 rset = pstmt.executeQuery();
 
-while(rset.next()){
-pId =rset.getInt("pID");
+pId =rset.getString("pID");
 pic =rset.getString("photo");
 pName =rset.getString("pName");
 company =rset.getString("company");
 desc=rset.getString("description");
 price =currFormat.format(rset.getDouble("price"));
-rating=rset.getDouble("pRating");
-}
-
-System.out.print(pId);
-}catch(SQLException e){out.println("Error found in reading SQL: "+ e.getMessage());}
-finally {
-	if(con != null)
-	try{
-	con.close();
-	}catch(SQLException e) {out.println("Exception caught: " + e.getMessage());}
-}
+rating=rset.getDouble("pRating")+""; //CHANGE TO STRING
+	//pPrice2.substring(0, 2);
 
 
 
 %>
+<jsp:forward page="showcart.jsp" />
