@@ -121,6 +121,7 @@ try{ con = DriverManager.getConnection(url,uId,pw);
 	PreparedStatement pstmt5 = con.prepareStatement(sql5);
 	ResultSet rset5 = pstmt5.executeQuery();
 	rset5.next();
+	out.println("<h4>This transaction has been automatically billed to your credit card account on file </h4>");
 	out.println("<h4> Shipping to: "+rset5.getString("firstName")+" With the customer ID: "+ custId +"</h4>");
 	session.removeAttribute("productList");
 	out.println("<br> Forgotten something ?");
