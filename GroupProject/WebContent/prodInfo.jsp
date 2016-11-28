@@ -16,7 +16,7 @@ try{
 NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 //Class.forName("com.sql.jdbc.Driver");
 con = DriverManager.getConnection(url,uId,pw);
-String sql1 = "SELECT pID, photo, pName, company, description, price, pRating FROM Part WHERE pID = " + id + ";";
+String sql1 = "SELECT pID, photo, pName, company, description, price, pRating FROM Part WHERE pName = " + id + ";";
 PreparedStatement pstmt = null;
 ResultSet rset =null;
 

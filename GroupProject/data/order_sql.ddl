@@ -123,18 +123,18 @@ INSERT INTO Company VALUES (7, 'Acer');
 INSERT INTO Company VALUES (8, 'ASUS');
 
 
-INSERT INTO Part VALUES(1,'<img src="">','500GB Hard Drive','Intel','500gb HDD 5400rpm',50.00, 0, 1, 1);
-INSERT INTO Part VALUES(2,'<img src="">','1TB Hard Drive','Intel','1tb HDD 7200rpm',100.00, 0, 1, 1);
-INSERT INTO Part VALUES(3,'<img src="">','128GB Solid State Drive','Intel','128gb SSD',150.00, 0, 1, 1);
-INSERT INTO Part VALUES(4,'<img src="">','8GB RAM','NVidia','8 GB RAM stick',50.00, 0, 2, 2);
-INSERT INTO Part VALUES(5,'<img src="">','16GB RAM','Intel','16gb RAM stick',75.00, 0, 2, 1);
-INSERT INTO Part VALUES(6,'<img src="">','Gaming Mouse','Logitech','A real nice Mouse',25.00, 0, 3, 3);
-INSERT INTO Part VALUES(7,'<img src="">','Keyboard','Logitech','A real nice keyboard',25.00, 0, 4, 3);
-INSERT INTO Part VALUES(8,'<img src="">','HD Monitor','LG','1080px LED monitor',250.00, 0, 5, 6);
-INSERT INTO Part VALUES(9,'<img src="">','ThinkPad','Lenovo','500gb HDD 4GB RAM, 1080p, 1.8ghz I-3 Core',750.00, 0, 6, 4);
-INSERT INTO Part VALUES(10,'<img src="">','Insperion','Dell','750gb HDD 8GB RAM, 1080p, 2.6ghz I-5 Core',1000.00, 0, 6, 5);
-INSERT INTO Part VALUES(11,'<img src="">','Aspire','Acer','128gb SDD 4GB RAM, 1080p, 2.2ghz I-5 Core',900.00, 0, 6, 7);
-INSERT INTO Part VALUES(12,'<img src="">','Zenbook','ASUS','500gb HDD 8GB RAM, 1080p, 2.8ghz I-7 Core',1100.00, 0, 6, 8);
+INSERT INTO Part VALUES(1,'<img src="https://www.techpowerup.com/img/12-10-29/intel_ssd_335_series_01.jpg">','500GB Hard Drive','Intel','500gb HDD 5400rpm',50.00, 0, 1, 1);
+INSERT INTO Part VALUES(2,'<img src="http://www.disctech.com/SCASite/product_images/SSDSA2BW600G3D-DEL_1000-1.jpg">','1TB Hard Drive','Intel','1tb HDD 7200rpm',100.00, 0, 1, 1);
+INSERT INTO Part VALUES(3,'<img src="https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/103/10366/10366520.jpg">','128GB Solid State Drive','Intel','128gb SSD',150.00, 0, 1, 1);
+INSERT INTO Part VALUES(4,'<img src="http://cdn2.bigcommerce.com/server5500/e5a8d/products/204737/images/183273/0000963_2gb-ddr3-kingston-1333-mhz-laptop-ram__41054.1415805258.1280.1280.jpg?c=2">','8GB RAM','NVidia','8 GB RAM stick',50.00, 0, 2, 2);
+INSERT INTO Part VALUES(5,'<img src="http://www.techeeze.com/estore/product_images/w/218/2GB_Hynix_Laptop_RAM__83133.jpg">','16GB RAM','Intel','16gb RAM stick',75.00, 0, 2, 1);
+INSERT INTO Part VALUES(6,'<img src="http://images10.newegg.com/ProductImage/26-785-106-01.jpg">','Gaming Mouse','Logitech','A real nice Mouse',25.00, 0, 3, 3);
+INSERT INTO Part VALUES(7,'<img src="http://assets.razerzone.com/eeimages/products/76/razer-tron-keyboard-gallery-2.png">','Keyboard','Logitech','A real nice keyboard',25.00, 0, 4, 3);
+INSERT INTO Part VALUES(8,'<img src="https://i5.walmartimages.com/asr/1d79f19c-1c9b-436e-a97d-7bd50b8a4cd1_1.9b58d070bd277c63f145eb04ef77a18b.jpeg">','HD Monitor','LG','1080px LED monitor',250.00, 0, 5, 6);
+INSERT INTO Part VALUES(9,'<img src="http://www.lenovo.com/images/subseries/thinkpad-x260-hero.png">','ThinkPad','Lenovo','500gb HDD 4GB RAM, 1080p, 1.8ghz I-3 Core',750.00, 0, 6, 4);
+INSERT INTO Part VALUES(10,'<img src="https://images-na.ssl-images-amazon.com/images/G/01/electronics/dell/cnet_dell_15z_gallery_04_800.jpg">','Insperion','Dell','750gb HDD 8GB RAM, 1080p, 2.6ghz I-5 Core',1000.00, 0, 6, 5);
+INSERT INTO Part VALUES(11,'<img src="https://d3nevzfk7ii3be.cloudfront.net/igi/pf4PFmTc5LTS5Qvp.large">','Aspire','Acer','128gb SDD 4GB RAM, 1080p, 2.2ghz I-5 Core',900.00, 0, 6, 7);
+INSERT INTO Part VALUES(12,'<img src="https://www.asus.com/websites/global/products/7QOyYET5rtB4JsG2/img/kv_part2.png">','Zenbook','ASUS','500gb HDD 8GB RAM, 1080p, 2.8ghz I-7 Core',1100.00, 0, 6, 8);
 
 INSERT INTO Customer VALUES ( 0, 'Admin', 'Team', 'NeXt', 'admin@NeXt.ca', '935 Academy Way', 'Kelowna', 'BC', 'V1V4C9');
 INSERT INTO Customer VALUES ( 1, 'Walrus', 'Ross', 'Stevenson','rstevenson@anywhere.com', '103 AnyWhere Street', 'Kelowna', 'BC', 'HOHOHO');
