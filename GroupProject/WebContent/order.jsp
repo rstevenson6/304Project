@@ -9,6 +9,7 @@
 <html>
 <head>
 <title>NeXt Order Processing</title>
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 

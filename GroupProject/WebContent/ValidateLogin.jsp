@@ -13,8 +13,9 @@ try{
 }catch(IOException e){
 	System.err.println(e);
 }
+
 if(authenticatedUser != null){
-	response.sendRedirect("order.jsp");
+	response.sendRedirect("UserProfile.jsp");
 }else{
 	session.setAttribute("LoginMessage", "Failed Login. Kindly try again");
 	response.sendRedirect("Login.jsp");
