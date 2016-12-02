@@ -9,6 +9,7 @@
 <html>
 <head>
 <title>NeXt User Profile</title>
+
 <style>
 
 </style>
