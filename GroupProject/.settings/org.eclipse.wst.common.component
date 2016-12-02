@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="304Project">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/External Lib"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/External Lib"/>
+>>>>>>> 2e25dd3d60a11508150de793bfca01709ee516fc
         <property name="java-output-path" value="/304Project/build/classes"/>
         <property name="context-root" value="304Project"/>
     </wb-module>
