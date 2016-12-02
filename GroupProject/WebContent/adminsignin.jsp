@@ -14,7 +14,7 @@ if (session.getAttribute("LoginMessage") != null)
 	out.println("<p>" + session.getAttribute("LoginMessage").toString() +"</p>");
 %>
 <br>
-<form name="Login from" method =post action="ValidateLogin.jsp" >
+<form name="Login from" method =post action="AValidate.jsp" >
 <table width="50%" border="0" cellspacing="0" cellpadding="0" >
 <tr> 
 <td> <div align="right">Admin ID:    </div> </td>

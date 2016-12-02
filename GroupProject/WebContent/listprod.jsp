@@ -104,6 +104,7 @@ tr:nth-child(odd) {
 String name = request.getParameter("productName");
 String category = request.getParameter("categoryName");
 
+
 boolean hasNameP = name != null && !name.equals("");
 boolean hasCategoryP = category != null && !category.equals("") && !category.equals("All");
 
@@ -150,8 +151,8 @@ boolean hasCategoryP = category != null && !category.equals("") && !category.equ
 			//pPrice2.substring(0, 2);
 			
 			out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
-						"</td> <td><a href=\"prodInfo.jsp?id="+pName+" </a></td><td>"+pPrice+"</td> </tr>");
-			//out.println("");
+					"</td> <td><a href=\"prodInfo.jsp?id="+pId+" \"> "+ pName+"</a> </td><td>"+pPrice+"</td> </tr>");
+			//out.println(""); prodInfo.jsp?
 	}
 	out.println("</table>");
 	}else if(hasNameP){
@@ -168,7 +169,7 @@ boolean hasCategoryP = category != null && !category.equals("") && !category.equ
 				pPrice2 =rset.getDouble("price")+"";
 				//pPrice2.substring(0, 2);
 				out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
-						"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
+						"</td> <td><a href=\"prodInfo.jsp?id="+pId+" \"> "+ pName+"</a> </td><td>"+pPrice+"</td> </tr>");
 		}
 		out.println("</table>");
 	}else if(hasCategoryP){
@@ -186,7 +187,7 @@ boolean hasCategoryP = category != null && !category.equals("") && !category.equ
 			//pPrice2.substring(0, 2);
 			
 			out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
-						"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
+					"</td> <td><a href=\"prodInfo.jsp?id="+pId+" \"> "+ pName+"</a> </td><td>"+pPrice+"</td> </tr>");
 			//out.println("");
 	}
 	out.println("</table>");
@@ -204,8 +205,10 @@ boolean hasCategoryP = category != null && !category.equals("") && !category.equ
 			pPrice2 =rset.getDouble("price")+""; //CHANGE TO STRING
 			//pPrice2.substring(0, 2);
 			
+			//out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
+			//			"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
 			out.println("<tr> <td> <a href=\"addcart.jsp?id="+pId+"&name="+pName+"&price="+pPrice2+" \">add to cart</a> "+
-						"</td> <td>"+pName+"</td><td>"+pPrice+"</td> </tr>");
+					"</td> <td><a href=\"prodInfo.jsp?id="+pId+" \"> "+ pName+"</a> </td><td>"+pPrice+"</td> </tr>");
 			//out.println("");
 	}
 	out.println("</table>");

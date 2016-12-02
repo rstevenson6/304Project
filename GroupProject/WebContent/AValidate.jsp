@@ -8,23 +8,24 @@ String authenticatedUser = null;
 session = request.getSession(true);
 
 try{
-	authenticatedUser = validateLogin(out,request,session);
+	authenticatedUser = validateLogin2(out,request,session);
 	
 }catch(IOException e){
 	System.err.println(e);
 }
 
 if(authenticatedUser != null){
-	response.sendRedirect("UserProfile.jsp");
+	response.sendRedirect("Admin.jsp");
 }else{
 	session.setAttribute("LoginMessage", "Failed Login. Kindly try again");
-	response.sendRedirect("Login.jsp");
+	response.sendRedirect("adminsignin.jsp");
 }
 %>
 
 
 <%!
-String validateLogin(JspWriter out, HttpServletRequest request, HttpSession session) throws IOException{
+String validateLogin2(JspWriter out, HttpServletRequest request, HttpSession session) throws IOException{
+	/*
 	String userId = request.getParameter("userId");
 	String password = request.getParameter("password");
 	if (userId==null || password==null)
@@ -33,6 +34,7 @@ String validateLogin(JspWriter out, HttpServletRequest request, HttpSession sess
 		return null;
 	if(toInt(userId)==null)
 		return null;
+	*/
 	/*
 	if (userId.equals("test") && password.equals("test"))
 		return userId;
@@ -40,6 +42,7 @@ String validateLogin(JspWriter out, HttpServletRequest request, HttpSession sess
 		return null;
 	*/
 	 
+	/*
 	//Login using Database 
 		java.sql.Connection con = null; 
 		String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_dkandie;";
@@ -52,6 +55,7 @@ String validateLogin(JspWriter out, HttpServletRequest request, HttpSession sess
 		pstmt.setInt(1,toInt(userId));
 		ResultSet rset = pstmt.executeQuery();
 		if(rset.next()){
+		//if(password.equals(rset.getString("password")) && rset.getInt("accessLevel")==0){ //ADD check for admin 
 		if(password.equals(rset.getString("password"))){
 			session.removeAttribute("LoginMessage");
 			session.setAttribute("authenticatedUser", userId);
@@ -64,6 +68,9 @@ String validateLogin(JspWriter out, HttpServletRequest request, HttpSession sess
 			//out.println("error1"); 
 		return null;
 		} 
+		
+
+		
 	}catch(SQLException e){out.println(e);}
 	finally{
 			try{ 
@@ -76,7 +83,11 @@ String validateLogin(JspWriter out, HttpServletRequest request, HttpSession sess
 	//	out.println( }
 	//return null;
 	return null;
+	*/
+	return "0"; //for testing 
 	}
+	
+	
 Integer toInt(String s){
 	try{
 	return Integer.parseInt(s);
