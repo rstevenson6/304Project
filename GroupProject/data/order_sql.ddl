@@ -140,7 +140,7 @@ INSERT INTO Customer VALUES ( 0, 'Admin', 'Team', 'NeXt', 'admin@NeXt.ca', '935 
 INSERT INTO Customer VALUES ( 1, 'Walrus', 'Ross', 'Stevenson','rstevenson@anywhere.com', '103 AnyWhere Street', 'Kelowna', 'BC', 'HOHOHO');
 INSERT INTO Customer VALUES ( 2, 'Goofball', 'Max', 'Marchand','mmarchand@anywhere.com', '5 EX drive', 'Kelowna', 'BC', 'I5UCKD');
 INSERT INTO Customer VALUES ( 3, 'Poland', 'Daniel', 'Kandie','kandieman@anywhere.com', '420 Yellow Brick Road', 'Kelowna', 'BC', '694TWZ');
-INSERT INTO Customer VALUES ( 4, 'Helocopter', 'Ashton', 'Rasmuson','ADawg@anywhere.com', '7 Evergreen Terrace', 'Springfield', 'BC', '789WTF');
+INSERT INTO Customer VALUES ( 4, 'Helicopter', 'Ashton', 'Rasmuson','ADawg@anywhere.com', '7 Evergreen Terrace', 'Springfield', 'BC', '789WTF');
 
 INSERT INTO Warehouse VALUES (1, '123 elm street', 'Vancouver', 'BC', 'V7W3JS');
 INSERT INTO Warehouse VALUES (2, '456 Bark avenue', 'Calgary', 'AB', 'C0WM00');
